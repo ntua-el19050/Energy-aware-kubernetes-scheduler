@@ -6,13 +6,13 @@ This repository is for the Thesis of Athanasios Pyliotis for the Integrated Mast
 * Go: 1.24.4+
 Required for building Kubernetes and the custom plugins.
 
-Docker: 27.5.1+
+* Docker: 27.5.1+
 Used to build and push the custom scheduler image.
 
-Docker Hub account:
+* Docker Hub account:
 Needed for pushing and pulling the custom scheduler image. Remember to run docker login.
 
-MicroK8s: 1.32.4 revision 8148 +
+* MicroK8s: 1.32.4 revision 8148 +
 Lightweight Kubernetes distribution used for running the local multi-node cluster.
 Make sure the following MicroK8s addons are enabled:
 dns, storage, metrics-server, helm3, rbac, hostpath-storage
