@@ -1,0 +1,176 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.42"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "1000M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "1024Mi"
+        cpu: "750m"
+      limits:
+        memory: "1024Mi"
+        cpu: "750m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-2
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.7"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "100M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "128Mi"
+        cpu: "100m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-3
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.81"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "64M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "500m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-4
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.47"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "500M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "250m"
+      limits:
+        memory: "512Mi"
+        cpu: "250m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-5
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.52"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "100M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "750m"
+      limits:
+        memory: "128Mi"
+        cpu: "750m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-6
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.46"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "1500M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "1536Mi"
+        cpu: "250m"
+      limits:
+        memory: "1536Mi"
+        cpu: "250m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-7
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.68"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "1", "--vm", "1", "--vm-bytes", "1000M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "1024Mi"
+        cpu: "1000m"
+      limits:
+        memory: "1024Mi"
+        cpu: "1000m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-8
+  namespace: experiment
+  labels:
+    app: roaringbeasts
+    carbonIntensity: "1.45"
+spec:
+  schedulerName: my-scheduler
+  containers:
+  - name: container
+    image: polinux/stress
+    command: ["stress", "--cpu", "2", "--vm", "1", "--vm-bytes", "1500M", "--timeout", "1800s"]
+    resources:
+      requests:
+        memory: "1536Mi"
+        cpu: "2000m"
+      limits:
+        memory: "1536Mi"
+        cpu: "2000m"

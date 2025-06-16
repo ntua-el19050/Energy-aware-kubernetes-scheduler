@@ -1,0 +1,106 @@
+apiVersion: kubescheduler.config.k8s.io/v1
+kind: KubeSchedulerConfiguration
+leaderElection:
+  leaderElect: false
+profiles:
+  - schedulerName: my-default-scheduler
+
+  - schedulerName: my-scheduler
+    plugins:
+      score:
+        disabled:
+          - name: "*"
+        enabled:
+          - name: NodeResourcesBalancedAllocation
+            weight: 1
+          - name: ImageLocality
+            weight: 2
+          - name: NodeAffinity
+            weight: 1
+          - name: TaintToleration
+            weight: 1
+          - name: VolumeBinding
+            weight: 1
+          - name: InterPodAffinity
+            weight: 1
+          - name: VectorBinPacking
+            weight: 1
+          - name: ResourceVectorSimilarity
+            weight: 1
+          - name: EnergyAwareUsage
+            weight: 2
+          - name: EnergyAwareEATSVM
+            weight: 3
+          - name: DensePackingDPM
+            weight: 3
+    pluginConfig:
+      - name: VectorBinPacking
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: ResourceVectorSimilarity
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: EnergyAwareUsage
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: EnergyAwareEATSVM
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: DensePackingDPM
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+
+  - schedulerName: my-scheduler-1
+    plugins:
+      score:
+        disabled:
+          - name: "*"
+        enabled:
+          - name: NodeResourcesBalancedAllocation
+            weight: 2
+          - name: ImageLocality
+            weight: 3
+          - name: NodeAffinity
+            weight: 1
+          - name: TaintToleration
+            weight: 1
+          - name: VolumeBinding
+            weight: 1
+          - name: InterPodAffinity
+            weight: 1
+          - name: VectorBinPacking
+            weight: 3
+          - name: ResourceVectorSimilarity
+            weight: 3
+          - name: EnergyAwareUsage
+            weight: 1
+          - name: EnergyAwareEATSVM
+            weight: 1
+          - name: DensePackingDPM
+            weight: 2
+    pluginConfig:
+      - name: VectorBinPacking
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: ResourceVectorSimilarity
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: EnergyAwareUsage
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: EnergyAwareEATSVM
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
+      - name: DensePackingDPM
+        args:
+          apiVersion: kubescheduler.config.k8s.io/v1
+          kind: Args
